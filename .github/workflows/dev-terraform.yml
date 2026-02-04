@@ -17,7 +17,7 @@ jobs:
         with:
           terraform_version: 1.6.6
 
-      - name: Terraform Init T1
+      - name: Terraform Init
         run: terraform init
         env:
           TF_VAR_subscription_id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
@@ -26,7 +26,7 @@ jobs:
           TF_VAR_tenant_id: ${{ secrets.AZURE_TENANT_ID }}
 
       - name: Terraform Plan
-        run: terraform plan -var-file=env/dev.tfvars
+        run: terraform plan -out=dev-tfplan -var-file=env/dev.tfvars
         env:
           TF_VAR_subscription_id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
           TF_VAR_client_id: ${{ secrets.AZURE_CLIENT_ID }}
