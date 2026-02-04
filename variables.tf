@@ -14,3 +14,7 @@ variable "resource_group_name" {
 variable "environment" {
   default = "dev"
 }
+
+variable "location" {
+  default = "centralus"
+}

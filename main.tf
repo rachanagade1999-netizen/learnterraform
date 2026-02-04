@@ -1,6 +1,6 @@
 resource "azurerm_resource_group" "nsrg" {
   name     = var.resource_group_name
-  location = "eastus"
+  location = var.location
 }
 
 
@@ -22,12 +22,12 @@ resource "azurerm_virtual_network" "nsvnet" {
   // dns_servers         = ["10.0.0.4", "10.0.0.5"]
 
   subnet {
-    name             = "${azurerm_virtual_network.nsvnet.name}-subnet1"
+    name             = "${var.environment}-vnet1-subnet1"
     address_prefixes = ["10.0.1.0/24"]
   }
 
   subnet {
-    name             = "${azurerm_virtual_network.nsvnet.name}-subnet2"
+    name             = "${var.environment}-vnet1-subnet2"
     address_prefixes = ["10.0.2.0/24"]
     security_group   = azurerm_network_security_group.nsnsg.id
   }
