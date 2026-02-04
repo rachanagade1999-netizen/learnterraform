@@ -8,7 +8,7 @@ variable "tenant_id" {}
 
 // resource group name
 variable "resource_group_name" {
-  default = "${var.environment}-rg-terraform-github-actions"
+  default = "dev-rg-terraform-github-actions"
 }
 // environment
 variable "environment" {
