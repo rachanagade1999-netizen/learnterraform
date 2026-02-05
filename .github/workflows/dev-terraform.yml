@@ -18,8 +18,8 @@ jobs:
           terraform_version: 1.6.6
 
       - name: Change to Dev Directory
-        run: cd dev  # ensures Terraform executes dev/main.tf
-        
+        run: cd env/dev  # ensures Terraform executes dev/main.tf
+
       - name: Terraform Init Dev
         run: terraform init
         env:
