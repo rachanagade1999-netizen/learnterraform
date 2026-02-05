@@ -38,7 +38,7 @@ jobs:
       #     TF_VAR_tenant_id: ${{ secrets.AZURE_TENANT_ID }}
 
       - name: Terraform Plan Dev
-        run: terraform plan -out=dev-tfplan -var-file=env/dev/dev.tfvars
+        run: terraform plan -out=dev-tfplan -var-file=dev.tfvars
         working-directory: env/dev
         env:
           TF_VAR_subscription_id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
