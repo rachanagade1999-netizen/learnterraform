@@ -17,7 +17,7 @@ jobs:
         with:
           terraform_version: 1.6.6
 
-      - name: Change to Dev Directory
+      - name: Change to Dev Directory for Init
         run: cd env/dev  # ensures Terraform executes dev/main.tf
 
       - name: Terraform Init Dev
@@ -39,6 +39,9 @@ jobs:
       #     TF_VAR_client_secret: ${{ secrets.AZURE_CLIENT_SECRET }}
       #     TF_VAR_tenant_id: ${{ secrets.AZURE_TENANT_ID }}
 
+      - name: Change to Dev Directory for Init
+        run: cd env/dev  # ensures Terraform executes dev/main.tf
+        
       - name: Terraform Plan Dev
         run: terraform plan -out=dev-tfplan -var-file=env/dev/dev.tfvars
         env:
